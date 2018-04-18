@@ -24,3 +24,13 @@ matrix:
         - mkdir build
         - cd build
         - cmake .. && make && ./rhubarb/runTests
+deploy:
+  # Deploy to GitHub releases
+  provider: releases
+  api_key: $GITHUB_OAUTH_TOKEN
+  file_glob: true
+  file: "./rhubarb/rhubarb-lip-sync-*.zip"
+  skip_cleanup: true
+  on:
+    tags: true
+  draft: true
