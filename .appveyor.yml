@@ -1,0 +1,25 @@
+image: Visual Studio 2015
+platform:
+  - x86
+configuration:
+  - Release
+install:
+  - mkdir build
+  - cd build
+  - cmake .. -G "Visual Studio 14 2015"
+  - cmake --build . --config Release --target package
+  - rhubarb\runTests
+artifacts:
+  - path: build\rhubarb-lip-sync-*.zip
+    name: ZIP Package
+    type: zip
+deploy:
+  provider: GitHub
+  release: $(APPVEYOR_REPO_TAG_NAME)
+  description: 'Release description'
+  auth_token:
+    secure: Gk7y8Cb9ImDBthgL56W1QMWDEp4oIcbUeKgXnkiBsy7G+V6H59MPXv0ZC7Zht8+3
+  artifact: /.*\.zip/
+  draft: true
+  on:
+    appveyor_repo_tag: true
