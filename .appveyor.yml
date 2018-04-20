@@ -3,6 +3,8 @@ platform:
   - x86
 configuration:
   - Release
+environment:
+  BOOST_ROOT: C:\Libraries\boost_1_66_0
 install:
   - mkdir build
   - cd build
