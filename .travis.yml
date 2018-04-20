@@ -35,7 +35,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_OAUTH_TOKEN
   file_glob: true
-  file: "./build/rhubarb-lip-sync-*.zip"
+  file: "./rhubarb-lip-sync-*.zip"
   skip_cleanup: true
   on:
     tags: true
