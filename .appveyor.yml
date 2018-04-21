@@ -11,10 +11,9 @@ install:
   - cmake .. -G "Visual Studio 14 2015"
   - cmake --build . --config Release --target package
   - rhubarb\runTests
+  - cd ..
 artifacts:
   - path: build\rhubarb-lip-sync-*.zip
-    name: ZIP Package
-    type: zip
 deploy:
   provider: GitHub
   release: $(APPVEYOR_REPO_TAG_NAME)
